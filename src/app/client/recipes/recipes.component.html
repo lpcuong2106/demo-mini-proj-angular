@@ -1,0 +1,12 @@
+<p>recipes works!</p>
+<div>
+  <div *ngFor="let recipe of recipes">
+    <a [routerLink]="['/recipes', recipe.id]">
+      <p>{{recipe.name}}</p>
+    </a>
+  </div>
+</div>
+
+
+<h4>Recipe Selected</h4>
+<router-outlet></router-outlet>
