@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,6 +14,7 @@ import { ShoppingListComponent } from './client/shopping-list/shopping-list.comp
 import { NotFoundComponent } from './client/not-found/not-found.component';
 import { EditRecipeComponent } from './client/edit-recipe/edit-recipe.component';
 import { RecipeDetailComponent } from './client/recipe-detail/recipe-detail.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,7 @@ import { RecipeDetailComponent } from './client/recipe-detail/recipe-detail.comp
     RecipeDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

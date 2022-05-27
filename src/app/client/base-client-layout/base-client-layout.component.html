@@ -7,13 +7,21 @@
   <span>Welcome</span>
     <nav class="menu">
       <ul>
-        <li><a [routerLink]="['/admin', 'dashboard']">Dashboard</a></li>
-        <li><a [routerLink]="['/admin', 'users']">Users</a></li>
-        <div *ngIf="isAuth;" style="display: flex;">
+        <li><a [routerLink]="['/recipes']">Recipes</a></li>
+        <li><a [routerLink]="['/recipes', 1]">Recipes Detail</a></li>
+        <li><a [routerLink]="['/shopping-list']">Shopping</a></li>
+
+        <li><a [routerLink]="['/wrong-routing/1232131231']">Wrong routing</a></li>
+        <div *ngIf="isAuth; else loginButton" style="display: flex;">
+          <li ><a [routerLink]="['/admin']">Admin</a></li>
           <li><a (click)="logoutApp()">Logout</a></li>
         </div>
 
-
+        <ng-template #loginButton>
+          <div>
+            <li> <a (click)="loginApp()">Login</a></li>
+          </div>
+        </ng-template>
 
       </ul>
     </nav>
@@ -31,34 +39,4 @@
       </svg>
     </a>
 </div>
-<div class="content-layout">
-  <aside>
-    <div>
-      <a class="navbar-brand" routerLink="./" aria-label="Front">
-        <img class="navbar-brand-logo" src="https://htmlstream.com/preview/front-dashboard-v2.0/assets/svg/logos/logo.svg" alt="Logo" data-hs-theme-appearance="default">
-
-      </a>
-      <div class="nav-item">
-        <a class="nav-link dropdown-toggle active" href="#navbarVerticalMenuDashboards" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true" aria-controls="navbarVerticalMenuDashboards">
-          <i class="bi-house-door nav-icon"></i>
-          <span class="nav-link-title">Dashboards</span>
-        </a>
-
-        <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse show" data-bs-parent="#navbarVerticalMenu" hs-parent-area="#navbarVerticalMenu">
-          <a class="nav-link active" href="./index.html">Default</a>
-          <a class="nav-link " href="./dashboard-alternative.html">Alternative</a>
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div style="margin-left: 20px;">
-    <router-outlet></router-outlet>
-  </div>
-
-</div>
-
-<footer>
-  <div>
-    <p>@Copyright - 2022</p>
-  </div>
-</footer>
+<router-outlet></router-outlet>
