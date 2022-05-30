@@ -8,6 +8,7 @@
     <nav class="menu">
       <ul>
         <li><a [routerLink]="['/recipes']">Recipes</a></li>
+        <li><a [routerLink]="['/recipes']" [queryParams]="{limit: 10, page: 2}">Recipes Limit</a></li>
         <li><a [routerLink]="['/recipes', 1]">Recipes Detail</a></li>
         <li><a [routerLink]="['/shopping-list']">Shopping</a></li>
 
